@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_about.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_contact_us.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_customer_detail.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_forgot_password.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_home_old.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_invoice_send.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_offline.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_ower_detail.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_pdf.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_pdf_main.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_pdfadapter.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_register_page.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_shop_first_detail.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_shop_logo_upload.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_something_went_wrong.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_success_register.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_terms_and_conditions.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_transaction_detail.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_transfer_money.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_update_logo.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_update_owner_details.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_update_password.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_update_shop_details.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_view.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_wrg.xml" value="0.1" />
+        <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/navigation_header.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

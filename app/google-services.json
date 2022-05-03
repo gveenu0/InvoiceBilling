@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "314870080752",
+    "firebase_url": "https://invoiceandbilling-a52f4-default-rtdb.firebaseio.com",
+    "project_id": "invoiceandbilling-a52f4",
+    "storage_bucket": "invoiceandbilling-a52f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:314870080752:android:fcd0eb01ca4cc697e7ce35",
+        "android_client_info": {
+          "package_name": "com.softtechnotech.invoicebilling"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "314870080752-lhsb1j7g1ivka3vebaopjjb9j30br9lr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.softtechnotech.invoicebilling",
+            "certificate_hash": "a7e5f85a501bedf59367003e95f34d0570c12236"
+          }
+        },
+        {
+          "client_id": "314870080752-0m2tqfdann3jp6jgndd3367l7b01vtot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChi_Mvs7kzSCAsrApFRlsq_e-dRlstaps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "314870080752-0m2tqfdann3jp6jgndd3367l7b01vtot.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
