@@ -51,7 +51,7 @@
             android:autoSizeMinTextSize="10sp"
             android:fontFamily="sans-serif-smallcaps"
             android:textStyle="italic|bold"
-            android:textColor="#c30000"
+            android:textColor="@color/darkRed"
             android:textColorHint="@color/colorPrimary"
             android:gravity="center"/>
         <TextView
@@ -64,7 +64,7 @@
             android:autoSizeMinTextSize="10sp"
             android:fontFamily="sans-serif-condensed-light"
             android:textStyle="italic|bold"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/darkRed"
             android:textColorHint="@color/colorPrimary"
             android:gravity="center"/>
 

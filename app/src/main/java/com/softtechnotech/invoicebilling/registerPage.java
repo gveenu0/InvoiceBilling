@@ -3,9 +3,7 @@ package com.softtechnotech.invoicebilling;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
-//import android.support.annotation.NonNull;
 import androidx.annotation.NonNull;
-//import android.support.design.widget.Snackbar;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,16 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInResult;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -40,7 +31,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class registerPage extends AppCompatActivity {
     DatabaseHelper myDb;
-    Button signin;
     DatabaseReference rootRef, demoRef, demoRef1;
     private FirebaseAuth mAuth;
     EditText uname, pwd, rePwd;
@@ -48,15 +38,10 @@ public class registerPage extends AppCompatActivity {
     public static int count = 100000;
     Button next;
     ProgressDialog nDialog;
-    public static int flag = 0, authFlag = 0;
+    public static int flag = 0;
 
     private static final String TAG = "registerPage";
-    private Button signInButton;
-    private GoogleApiClient.Builder googleApiClient;
-    private static final int RC_SIGN_IN = 1;
-    String idToken;
-    private FirebaseAuth.AuthStateListener authStateListener;
-    GoogleSignInClient mGoogleSignInClient;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,31 +49,13 @@ public class registerPage extends AppCompatActivity {
         setContentView(R.layout.activity_register_page);
 
         myDb = new DatabaseHelper(this);
-        signInButton = findViewById(R.id.signin);
         next = findViewById(R.id.next);
         uname = findViewById(R.id.username);
         pwd = findViewById(R.id.password);
         rePwd = findViewById(R.id.rePassword);
         mAuth = FirebaseAuth.getInstance();
         nDialog = new ProgressDialog(registerPage.this);
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Google Integration xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-        GoogleSignInOptions gso =  new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))//you can also use R.string.default_web_client_id
-                .requestEmail()
-                .build();
-        mGoogleSignInClient = GoogleSignIn.getClient(this,gso);
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                nDialog.setMessage("Loading..");
-                nDialog.setIndeterminate(false);
-                nDialog.setCancelable(true);
-                nDialog.show();
-                flag = 1;
-                signIn();
-            }
-        });
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
@@ -176,11 +143,6 @@ public class registerPage extends AppCompatActivity {
         startActivity(intent);
         nDialog.dismiss();
     }
-    public void startSomethingWentWrongActivity(){
-        Intent intent = new Intent(this, offline.class);
-        startActivity(intent);
-        nDialog.dismiss();
-    }
 
     @Override
     public void onBackPressed() {
@@ -210,14 +172,7 @@ public class registerPage extends AppCompatActivity {
             }
         });
     }
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
-
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Google Integration xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
-
-    private void signIn(){
-        Intent intent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(intent, 1);
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -274,19 +229,14 @@ public class registerPage extends AppCompatActivity {
                             else{
                                 startActivity(new Intent(registerPage.this, shopFirstDetail.class));
                             }
-                            nDialog.dismiss();
-                            //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             Toast.makeText(registerPage.this, "Authentication Failed.", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(registerPage.this, somethingWentWrong.class));
-                            nDialog.dismiss();
                         }
-
-                        // ...
+                        nDialog.dismiss();
                     }
                 });
     }
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
 }

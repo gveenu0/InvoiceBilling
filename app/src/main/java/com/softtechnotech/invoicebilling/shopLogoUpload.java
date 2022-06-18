@@ -2,11 +2,9 @@ package com.softtechnotech.invoicebilling;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Handler;
-//import android.support.annotation.NonNull;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -76,14 +74,14 @@ public class shopLogoUpload extends AppCompatActivity {
                     if(myDb.insertImage(registerPage.strUsername, data)){
                         //Toast.makeText(shopLogoUpload.this, "Image uploaded to sqlit3", Toast.LENGTH_SHORT).show();
                         startSuccessActivity();
-                        //uploadFile();
+                        uploadFile();
                     }
                     else{
                         Toast.makeText(shopLogoUpload.this, "Error in image uploading", Toast.LENGTH_SHORT).show();
                         nDialog.dismiss();
                     }
                 }
-                /*
+
                 mStorageRef = FirebaseStorage.getInstance().getReference("shopLogo/").child(registerPage.username);
                 if (mUploadTask != null && mUploadTask.isInProgress()) {
                     Toast.makeText(shopLogoUpload.this, "Upload in Progress", Toast.LENGTH_SHORT).show();
@@ -94,7 +92,7 @@ public class shopLogoUpload extends AppCompatActivity {
                         return;
                     }
                     uploadFile();
-                }*/
+                }
             }
         });
     }

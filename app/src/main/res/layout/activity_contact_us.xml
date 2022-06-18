@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.softtechnotech.invoicebilling.registerPage"
-    android:background="@color/colorPage">
+    tools:context="com.softtechnotech.invoicebilling.registerPage">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -41,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="4.5"
-            android:text="Developed by :- SoftTechnoTech\nOwned By :- CredCraft Tech. \nEmail us :- technohelpchat@gmail.com\nFollow us :- Facebook, LinkedIn, Instagram"
+            android:text="Developed by : SoftTechnoTech\nOwned By : CredCraft Tech. \nEmail us : technohelpchat@gmail.com\nFollow us : Facebook, LinkedIn, Instagram, Youtube"
             android:lineSpacingMultiplier="1.2"
             android:autoSizeTextType="uniform"
             android:autoSizeMaxTextSize="22sp"

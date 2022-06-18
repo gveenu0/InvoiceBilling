@@ -2,7 +2,6 @@ package com.softtechnotech.invoicebilling;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-//import android.support.annotation.NonNull;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,7 +21,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class forgotPassword extends AppCompatActivity {
     DatabaseReference rootRef, demoRef;
-    private FirebaseAuth mAuth;
 
     EditText shopEmail;
     Button update;
@@ -35,7 +33,6 @@ public class forgotPassword extends AppCompatActivity {
         shopEmail = findViewById(R.id.shopEmail);
         update = findViewById(R.id.update);
 
-        mAuth = FirebaseAuth.getInstance();
         rootRef = FirebaseDatabase.getInstance().getReference();
         demoRef = rootRef.child("Invoice");
         update.setOnClickListener(new View.OnClickListener() {
@@ -93,7 +90,7 @@ public class forgotPassword extends AppCompatActivity {
     }
     public void startActivityUpdate(){
         Intent intent = new Intent(this, MainActivity.class);
-        login.videoPlay = "notPlay";
+
         startActivity(intent);
         nDialog.dismiss();
     }

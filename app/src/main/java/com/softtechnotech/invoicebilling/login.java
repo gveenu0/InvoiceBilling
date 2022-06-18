@@ -4,32 +4,22 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Environment;
-import android.preference.PreferenceManager;
-//import android.support.annotation.NonNull;
+
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.common.api.ApiException;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,19 +31,16 @@ import java.io.File;
 public class login extends AppCompatActivity {
 
     DatabaseHelper myDb;
-    Button signin;
-    DatabaseReference rootRef, demoRef,demoRef1;
+    DatabaseReference rootRef, demoRef;
     private FirebaseAuth mAuth;
 
-    public static String strUsername,strNewUsername, strPassword, videoPlay, userEmail;
+    public static String strUsername,strNewUsername, strPassword;
     Button login;
     EditText username, password;
     TextView forgotPassword;
     ProgressDialog nDialog;
-    public static int flag = 0, authFlag = 0;
+    public static int flag = 0;
 
-    private static final String TAG = "login";
-    GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +49,6 @@ public class login extends AppCompatActivity {
 
         myDb = new DatabaseHelper(this);
         login = findViewById(R.id.login);
-        signin = findViewById(R.id.signin);
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         forgotPassword = findViewById(R.id.forgotPassword);
@@ -72,26 +58,6 @@ public class login extends AppCompatActivity {
         rootRef = FirebaseDatabase.getInstance().getReference();
         demoRef = rootRef.child("Invoice");
 
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Google Integration xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-        GoogleSignInOptions gso =  new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))//you can also use R.string.default_web_client_id
-                .requestEmail()
-                .build();
-        mGoogleSignInClient = GoogleSignIn.getClient(this,gso);
-        signin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                nDialog.setMessage("Loading..");
-                nDialog.setIndeterminate(false);
-                nDialog.setCancelable(true);
-                nDialog.show();
-                flag = 1;
-                signIn();
-            }
-        });
-
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Firebase Helper xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
 
@@ -148,7 +114,7 @@ public class login extends AppCompatActivity {
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-                        startErrorActivity();;
+                        startErrorActivity();
                     }
                 });
 
@@ -160,14 +126,12 @@ public class login extends AppCompatActivity {
                 startForgotPasswordActivity();
             }
         });
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
     }
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Firebase Helper xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
 
     public void startActivityLogin(){
         Intent intent = new Intent(this, home.class);
-        videoPlay = "play";
         File myDir = new File(Environment.getExternalStorageDirectory().toString(), "Invoice");
 
         final String newUser, newEmail;
@@ -177,6 +141,7 @@ public class login extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("LOGIN", newUser);
         editor.putString("EMAIL", newEmail);
+        editor.putString("USERNAME", strNewUsername.replaceAll("[@.]",""));
         editor.commit();
 
         if(myDir.exists()){
@@ -211,82 +176,4 @@ public class login extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-    public void startOfflineActivity(){
-        Intent intent = new Intent(this, offline.class);
-        startActivity(intent);
-        nDialog.dismiss();
-    }
-
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Google Integration xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
-
-    private void signIn(){
-        Intent intent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(intent, 1);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode == 1){
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            try{
-                final GoogleSignInAccount account = task.getResult(ApiException.class);
-                demoRef = rootRef.child("Invoice");
-                strNewUsername = account.getEmail();
-                strUsername =strNewUsername.replaceAll("[@.]","");
-
-                demoRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(dataSnapshot.child(strUsername).exists()){
-                            Toast.makeText(login.this, "An account with this email id already exists please enter the password.",Toast.LENGTH_LONG).show();
-                            username.setText(strNewUsername);
-                            nDialog.dismiss();
-                        }
-                        else{
-                            firebasebaseAuthWithGoogle(account);
-                        }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        startOfflineActivity();
-                    }
-                });
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void firebasebaseAuthWithGoogle(GoogleSignInAccount account) {
-
-        AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithCredential:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            userEmail = user.getEmail();
-                            startActivity(new Intent(login.this, home.class));
-                            nDialog.dismiss();
-                            //updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            Toast.makeText(login.this, "Authentication Failed.", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(login.this, somethingWentWrong.class));
-                            nDialog.dismiss();
-                        }
-
-                    }
-                });
-    }
-
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
-
 }

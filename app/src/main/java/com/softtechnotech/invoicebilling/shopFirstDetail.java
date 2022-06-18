@@ -2,7 +2,7 @@ package com.softtechnotech.invoicebilling;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-//import android.support.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,19 +10,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class shopFirstDetail extends AppCompatActivity {
     DatabaseHelper myDb;
     DatabaseReference rootRef, demoRef, demoRef1;
-    private FirebaseAuth mAuth;
     Button next;
-    EditText shopName, shopMobile, shopAddress, shopPincode, shopEmail, gstNumber, slogan;
-    public static String strShopName, strShopMobile, strShopAddress, strShopPincode, strShopEmail, strGstNumber, strSlogan;
+    EditText shopName, shopMobile, shopAddress, shopPincode, shopEmail, gstNumber;
+    public static String strShopName, strShopMobile, strShopAddress, strShopPincode, strShopEmail, strGstNumber;
     ProgressDialog nDialog;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +35,6 @@ public class shopFirstDetail extends AppCompatActivity {
         shopPincode = findViewById(R.id.shopPincode);
         shopEmail = findViewById(R.id.shopEmail);
         gstNumber = findViewById(R.id.gstNumber);
-        slogan = findViewById(R.id.slogan);
         //mAuth = FirebaseAuth.getInstance();
 
         if(registerPage.flag == 1){
@@ -66,7 +62,6 @@ public class shopFirstDetail extends AppCompatActivity {
                 strShopPincode = shopPincode.getText().toString();
                 strShopEmail = shopEmail.getText().toString();
                 strGstNumber = gstNumber.getText().toString();
-                strSlogan = slogan.getText().toString();
 
                 if(strShopName.matches("")){
                     Toast.makeText(shopFirstDetail.this, "Enter shop name",Toast.LENGTH_LONG).show();
@@ -102,7 +97,7 @@ public class shopFirstDetail extends AppCompatActivity {
                     strGstNumber = "None";
                 }
                 if(strGstNumber.length() != 15){
-                    if(strGstNumber != "None"){
+                    if(!strGstNumber.equals("None")){
                         Toast.makeText(shopFirstDetail.this, "Enter valid GST number",Toast.LENGTH_LONG).show();
                         nDialog.dismiss();
                         return;
@@ -120,22 +115,16 @@ public class shopFirstDetail extends AppCompatActivity {
                     return;
                 }
 
-                if(strSlogan.matches("")){
-                    strSlogan = "None";
-                }
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Database Helper xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
 
-                if(myDb.insertData(strShopName, strShopMobile, strShopAddress, strShopPincode, strShopEmail, strGstNumber, strSlogan)){
-                    //Toast.makeText(shopFirstDetail.this, "Data Inserted", Toast.LENGTH_SHORT).show();
+                if(myDb.insertData(strShopName, strShopMobile, strShopAddress, strShopPincode, strShopEmail, strGstNumber)){
                     startShopLogoActivity();
                 }
                 else{
                     Toast.makeText(shopFirstDetail.this, "Error in data insertion", Toast.LENGTH_SHORT).show();
                     startSmwActivity();
                 }
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
-
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Firebase Helper xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx//
 
                 demoRef1 = demoRef.child("shopDetail");
@@ -145,16 +134,7 @@ public class shopFirstDetail extends AppCompatActivity {
                 demoRef1.child("shopPincode").setValue(strShopPincode);
                 demoRef1.child("gstNumber").setValue(strGstNumber);
                 demoRef1.child("shopEmail").setValue(strShopEmail);
-                if(slogan.length() == 0){
-                    demoRef1.child("slogan").setValue("None");
-                }
-                else{
-                    demoRef1.child("slogan").setValue(strSlogan);
-                }
                 startShopLogoActivity();
-
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/
-
             }
         });
     }

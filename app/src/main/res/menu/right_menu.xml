@@ -3,61 +3,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:orderInCategory="100"
-        android:title="Select Receipt Design"
+        android:title="Select Color"
         app:showAsAction="never" />
     <item
-        android:id="@+id/Flower"
+        android:id="@+id/blue"
         android:orderInCategory="100"
-        android:title="Flower"
+        android:title="Blue"
         app:showAsAction="never" />
     <item
-        android:id="@+id/Jewel"
+        android:id="@+id/red"
         android:orderInCategory="100"
-        android:title="Jewel"
+        android:title="Red"
         app:showAsAction="never" />
     <item
-        android:id="@+id/God"
+        android:id="@+id/green"
         android:orderInCategory="100"
-        android:title="God"
+        android:title="Green"
         app:showAsAction="never" />
     <item
-        android:id="@+id/Leaf"
+        android:id="@+id/violet"
         android:orderInCategory="100"
-        android:title="Leaf"
+        android:title="Violet"
         app:showAsAction="never" />
     <item
-        android:id="@+id/Square"
-        android:orderInCategory="100"
-        android:title="Square"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/Yellow"
+        android:id="@+id/yellow"
         android:orderInCategory="100"
         android:title="Yellow"
         app:showAsAction="never" />
     <item
-        android:id="@+id/Green_Brush"
+        android:id="@+id/skyblue"
         android:orderInCategory="100"
-        android:title="Green Brush"
+        android:title="Sky Blue"
         app:showAsAction="never" />
     <item
-        android:id="@+id/Gray_Flower"
+        android:id="@+id/orange"
         android:orderInCategory="100"
-        android:title="Gray Flower"
+        android:title="Orange"
         app:showAsAction="never" />
     <item
-        android:id="@+id/Crystal"
+        android:id="@+id/grey"
         android:orderInCategory="100"
-        android:title="Crystal"
+        android:title="Grey"
         app:showAsAction="never" />
     <item
-        android:id="@+id/Old_paper"
+        android:id="@+id/indigo"
         android:orderInCategory="100"
-        android:title="Old paper"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/Ancient_Paper"
-        android:orderInCategory="100"
-        android:title="Ancient Paper"
+        android:title="Indigo"
         app:showAsAction="never" />
 </menu>

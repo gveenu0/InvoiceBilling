@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.softtechnotech.invoicebilling.shopFirstDetail">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="10"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="0.6"
+            android:autoSizeMaxTextSize="50sp"
+            android:autoSizeMinTextSize="25sp"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="cursive"
+            android:gravity="center|bottom"
+            android:text="Enter Item Details"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="italic|bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical"
+                    android:weightSum="20">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_weight="1.8"
+                        android:background="@color/colorPrimary"
+                        android:fontFamily="sans-serif-condensed"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="  Item 1"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/productName1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Product Name"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/qty1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Quantity"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/rate1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Rate"
+                        android:inputType="number"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/hsn_sac_no1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="HSN/SAC"
+                        android:inputType="number"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_weight="1.8"
+                        android:background="@color/colorPrimary"
+                        android:fontFamily="sans-serif-condensed"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="  Item 2"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/productName2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Product Name"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/qty2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Quantity"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/rate2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Rate"
+                        android:inputType="number"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/hsn_sac_no2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="HSN/SAC"
+                        android:inputType="number"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_weight="1.8"
+                        android:background="@color/colorPrimary"
+                        android:fontFamily="sans-serif-condensed"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="  Item 3"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/productName3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Product Name"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/qty3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Quantity"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/rate3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Rate"
+                        android:inputType="number"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/hsn_sac_no3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="HSN/SAC"
+                        android:inputType="number"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_weight="1.8"
+                        android:background="@color/colorPrimary"
+                        android:fontFamily="sans-serif-condensed"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="  Item 4"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/productName4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Product Name"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/qty4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Quantity"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/rate4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Rate"
+                        android:inputType="number"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/hsn_sac_no4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="HSN/SAC"
+                        android:inputType="number"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_weight="1.8"
+                        android:background="@color/colorPrimary"
+                        android:fontFamily="sans-serif-condensed"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="  Item 5"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/productName5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Product Name"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/qty5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Quantity"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/rate5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Rate"
+                        android:inputType="number"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/hsn_sac_no5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="HSN/SAC"
+                        android:inputType="number"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_weight="1.8"
+                        android:background="@color/colorPrimary"
+                        android:fontFamily="sans-serif-condensed"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="  Item 6"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/productName6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Product Name"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/qty6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Quantity"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/rate6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Rate"
+                        android:inputType="number"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/hsn_sac_no6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="HSN/SAC"
+                        android:inputType="number"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_weight="1.8"
+                        android:background="@color/colorPrimary"
+                        android:fontFamily="sans-serif-condensed"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="  Item 7"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/productName7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Product Name"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/qty7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Quantity"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/rate7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Rate"
+                        android:inputType="number"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/hsn_sac_no7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="HSN/SAC"
+                        android:inputType="number"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_weight="1.8"
+                        android:background="@color/colorPrimary"
+                        android:fontFamily="sans-serif-condensed"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="  Item 8"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/productName8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Product Name"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/qty8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Quantity"
+                        android:inputType="text"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/rate8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="*Rate"
+                        android:inputType="number"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <EditText
+                        android:id="@+id/hsn_sac_no8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_weight="1.8"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="HSN/SAC"
+                        android:inputType="number"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textColorHint="@color/colorAccent"
+                        android:textSize="25dp"
+                        android:textStyle="italic" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.4" />
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.25" />
+
+            <Button
+                android:id="@+id/Item_next"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5.5"
+                android:autoSizeMaxTextSize="22sp"
+                android:autoSizeMinTextSize="15sp"
+                android:autoSizeTextType="uniform"
+                android:background="@drawable/anibutton"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:stateListAnimator="@animator/button_state_list_anim"
+                android:text="Next"
+                android:textColor="#FFFFFF"
+                android:textStyle="italic" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.25" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -3,7 +3,6 @@ package com.softtechnotech.invoicebilling;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -18,7 +17,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_4 = "shopPincode";
     public static final String COL_5 = "shopEmail";
     public static final String COL_6 = "gstNumber";
-    public static final String COL_7 = "slogan";
     public static final String COL_IMG_1 = "KEY_NAME";
     public static final String COL_IMG_2 = "KEY_IMAGE";
 
@@ -29,7 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(
-                "create table IF NOT EXISTS " +TABLE_NAME + "(shopEmail TEXT PRIMARY KEY, shopName TEXT, shopMobile TEXT, shopAddress TEXT, shopPincode TEXT, gstNumber TEXT, slogan TEXT)"
+                "create table IF NOT EXISTS " +TABLE_NAME + "(shopEmail TEXT PRIMARY KEY, shopName TEXT, shopMobile TEXT, shopAddress TEXT, shopPincode TEXT, gstNumber TEXT)"
         );
         db.execSQL("create table IF NOT EXISTS " +TABLE_NAME_IMAGE + "(KEY_NAME TEXT PRIMARY KEY, KEY_IMAGE BLOB)");
     }
@@ -40,7 +38,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData(String shopName, String shopMobile, String shopAddress, String shopPincode, String shopEmail, String gstNumber, String slogan){
+    public boolean insertData(String shopName, String shopMobile, String shopAddress, String shopPincode, String shopEmail, String gstNumber){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_5, shopEmail);
@@ -49,30 +47,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_3, shopAddress);
         contentValues.put(COL_4, shopPincode);
         contentValues.put(COL_6, gstNumber);
-        contentValues.put(COL_7, slogan);
         long result = db.insert(TABLE_NAME, null, contentValues);
-        if(result == -1){
-            return false;
-        }
-        else{
-            return true;
-        }
+        return result != -1;
     }
-
-//    public boolean updateData(String shopName, String shopMobile, String shopAddress, String shopPincode, String shopEmail, String gstNumber, String slogan){
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put(COL_1, shopName);
-//        contentValues.put(COL_2, shopMobile);
-//        contentValues.put(COL_3, shopAddress);
-//        contentValues.put(COL_4, shopPincode);
-//        contentValues.put(COL_6, gstNumber);
-//        contentValues.put(COL_7, slogan);
-//        long result = db.update(TABLE_NAME, contentValues, "shopEmail="+shopEmail, null);
-//        return result != -1;
-//    }
-
-
 
     public boolean insertImage(String keyName, byte[] image){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -80,32 +57,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_IMG_1, keyName);
         contentValues.put(COL_IMG_2, image);
         long result = db.insert(TABLE_NAME_IMAGE, null, contentValues);
-        if(result == -1){
-            return false;
-        }
-        else{
-            return true;
-        }
+        return result != -1;
     }
 
     public Cursor getAllData(String shopEmail){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from e_receipt_shop_info where shopEmail = '"+shopEmail+"'", null);
-        return res;
+        return db.rawQuery("select * from e_receipt_shop_info where shopEmail = '"+shopEmail+"'", null);
     }
 
     public Cursor getInfo(String shopEmail){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from e_receipt_shop_info where shopEmail = '"+shopEmail+"'", null);
-        return res;
+        return db.rawQuery("select * from e_receipt_shop_info where shopEmail = '"+shopEmail+"'", null);
     }
 
     public Cursor getImageInfo(String key_name){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from e_receipt_shop_logo where KEY_NAME = '"+key_name+"'", null);
-        return res;
+        return db.rawQuery("select * from e_receipt_shop_logo where KEY_NAME = '"+key_name+"'", null);
     }
-    public boolean updateData(String shopName, String shopMobile, String shopAddress, String shopPincode, String shopEmail, String gstNumber, String slogan){
+    public boolean updateData(String shopName, String shopMobile, String shopAddress, String shopPincode, String shopEmail, String gstNumber){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_1, shopName);
@@ -113,27 +82,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_3, shopAddress);
         contentValues.put(COL_4, shopPincode);
         contentValues.put(COL_6, gstNumber);
-        contentValues.put(COL_7, slogan);
-        db.update(TABLE_NAME, contentValues, "shopEmail = ?", new String[] {shopEmail});
-        return true;
+        long result = db.update(TABLE_NAME, contentValues, "shopEmail = ?", new String[] {shopEmail});
+        return result != -1;
     }
 
     public boolean updateImage(String keyName, byte[] image){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        //contentValues.put(COL_IMG_1, keyName);
         contentValues.put(COL_IMG_2, image);
         long result = db.update(TABLE_NAME_IMAGE, contentValues, "KEY_NAME = ?", new String[] {keyName});
-        if(result == -1){
-            return false;
-        }
-        else{
-            return true;
-        }
+        return result != -1;
     }
     public boolean deleteData (String shopEmail){
         SQLiteDatabase db = this.getWritableDatabase();
-        boolean res = db.delete(TABLE_NAME, "shopEmail = ?", new String[] {shopEmail}) > 0;
-        return res;
+        return db.delete(TABLE_NAME, "shopEmail = ?", new String[] {shopEmail}) > 0;
     }
 }

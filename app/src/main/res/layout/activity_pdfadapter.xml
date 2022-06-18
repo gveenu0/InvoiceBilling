@@ -6,7 +6,7 @@
     android:layout_height="80dp"
     tools:context=".PDFAdapter"
     android:orientation="horizontal"
-    android:background="#efefef"
+    android:background="#FFFFFF"
     android:layout_margin="8sp">
     <LinearLayout
         android:layout_width="match_parent"

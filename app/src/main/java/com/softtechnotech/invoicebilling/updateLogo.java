@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Handler;
-//import android.support.annotation.NonNull;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -64,14 +63,14 @@ public class updateLogo extends AppCompatActivity {
                 nDialog.setIndeterminate(false);
                 nDialog.setCancelable(true);
                 nDialog.show();
-                if(imageCheck == "notUploaded"){
+                if(imageCheck.equals("notUploaded")){
                     Toast.makeText(updateLogo.this, "Attach logo of your shop",Toast.LENGTH_LONG).show();
                     nDialog.dismiss();
                     return;
                 }
 
-                /*
-                mStorageRef = FirebaseStorage.getInstance().getReference("shopLogo/").child(login.strUsername);
+
+                mStorageRef = FirebaseStorage.getInstance().getReference("shopLogo/").child(home.userName);
                 if (mUploadTask != null && mUploadTask.isInProgress()) {
                     Toast.makeText(updateLogo.this, "Upload in Progress", Toast.LENGTH_SHORT).show();
                 } else {
@@ -81,20 +80,19 @@ public class updateLogo extends AppCompatActivity {
                         return;
                     }
                     uploadFile();
-                }*/
+                }
                 String value = null;
                 Cursor res = myDb.getImageInfo(home.preShopEmail);
                 if(res != null && res.getCount() > 0){
                     res.moveToFirst();
                     value = res.getString(0);
                 }
+                upload.buildDrawingCache();
+                Bitmap bitmap = upload.getDrawingCache();
+                byte[] data = getBitmapAsByteArray(bitmap);
                 if(value != null){
-                    upload.buildDrawingCache();
-                    Bitmap bitmap = upload.getDrawingCache();
-                    byte[] data = getBitmapAsByteArray(bitmap);
                     if(myDb.updateImage(home.preShopEmail, data)){
                         Toast.makeText(updateLogo.this, "Image successfully uploaded", Toast.LENGTH_SHORT).show();
-                        //uploadFile();
                         startLogoUpdateActivity();
                     }
                     else{
@@ -103,13 +101,9 @@ public class updateLogo extends AppCompatActivity {
                     }
                 }
                 else{
-                    upload.buildDrawingCache();
-                    Bitmap bitmap = upload.getDrawingCache();
-                    byte[] data = getBitmapAsByteArray(bitmap);
                     if(myDb.insertImage(home.preShopEmail, data)){
                         Toast.makeText(updateLogo.this, "Image successfully uploaded", Toast.LENGTH_SHORT).show();
                         startLogoUpdateActivity();
-                        //uploadFile();
                     }
                     else{
                         Toast.makeText(updateLogo.this, "server respond error", Toast.LENGTH_SHORT).show();
@@ -150,7 +144,7 @@ public class updateLogo extends AppCompatActivity {
 
     private void uploadFile(){
         if(upload != null){
-            StorageReference fileReference = mStorageRef.child(login.strUsername + ".jpg");
+            StorageReference fileReference = mStorageRef.child(home.userName + ".jpg");
             mUploadTask = fileReference.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -186,7 +180,6 @@ public class updateLogo extends AppCompatActivity {
     public void startLogoUpdateActivity(){
         Intent intent = new Intent(this, home.class);
         Toast.makeText(updateLogo.this, "Shop logo successfully updated",Toast.LENGTH_LONG).show();
-        login.videoPlay = "notPlay";
         startActivity(intent);
     }
 

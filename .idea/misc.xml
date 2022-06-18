@@ -3,6 +3,66 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable-v23/anibutton.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable-v23/back.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable-v23/coloredbutton.xml" value="0.1945" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable-v23/googlebutton.xml" value="0.1945" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable-v23/gradientbutton.xml" value="0.1945" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable-v23/ic_launcher_foreground.xml" value="0.1945" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable-v23/recttrans.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable-v23/tableborder.xml" value="0.1945" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable-v24/tableborder.xml" value="0.1945" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable/aboutus.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable/backgroud.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable/forgotpassword.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable/homeicon.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable/ic_person_black_24dp.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable/ic_power_settings_new_black_24dp.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable/ic_shop_black_24dp.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable/invoicecreated.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable/mainactivitybutton.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable/pdficon.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable/pwdreset.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable/recttrans.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable/success_face.xml" value="0.1945" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable/taskinvoice.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/drawable/wrg.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_about.xml" value="0.15" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_contact_us.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_customer_detail.xml" value="0.25" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_forgot_password.xml" value="0.1675213675213675" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_home_old.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_invoice_send.xml" value="0.1675213675213675" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_item_detail.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_offline.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_ower_detail.xml" value="0.15" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_pdf.xml" value="0.18" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_pdf_main.xml" value="0.25" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_pdfadapter.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_register_page.xml" value="0.15" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_shop_first_detail.xml" value="0.18" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_shop_logo_upload.xml" value="0.1675213675213675" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_something_went_wrong.xml" value="0.1675213675213675" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_success_register.xml" value="0.15" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_terms_and_conditions.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_transaction_detail.xml" value="0.18" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_transaction_detail_old.xml" value="0.20416666666666666" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_transfer_money.xml" value="0.1675213675213675" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_update_logo.xml" value="0.1675213675213675" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_update_password.xml" value="0.1675213675213675" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_update_shop_details.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_view.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/activity_wrg.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/layout/navigation_header.xml" value="0.22" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/menu/navigation.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/menu/navigation_menu.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/menu/right_menu.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="..\:/AppProject/AppProject2022/NativeApp/InvoiceBilling/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
         <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_about.xml" value="0.1" />
         <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_contact_us.xml" value="0.1" />
         <entry key="..\:/Users/gveen/AndroidStudioProjects/InvoiceBilling/app/src/main/res/layout/activity_customer_detail.xml" value="0.1" />

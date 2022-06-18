@@ -5,1411 +5,1705 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".transactionDetail"
-    android:background="@color/colorPage"
+    android:background="@color/colorwhite"
     android:id="@+id/invoicePage">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="20">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.4"/>
-        <TextView
-            android:id="@+id/shopName"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:text=""
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="italic|bold"
-            android:fontFamily="cursive"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMaxTextSize="50sp"
-            android:autoSizeMinTextSize="15sp"
-            android:gravity="center"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2.8"
-            android:orientation="horizontal"
-            android:weightSum="10">
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"/>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2.5">
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/shopLogo"
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:stateListAnimator="@animator/button_state_list_anim"
-                    app:civ_border_width="4dp"
-                    app:civ_border_color="#EEEEEE"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="7"
-                android:orientation="vertical"
-                android:layout_marginHorizontal="5dp"
-                android:weightSum="12">
+        android:weightSum="10">
 
-                <TextView
-                    android:id="@+id/shopAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="3"
-                    android:text=""
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMaxTextSize="25sp"
-                    android:autoSizeMinTextSize="10sp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textStyle="italic"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimary"
-                    />
-                <TextView
-                    android:id="@+id/shopEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="3"
-                    android:text=""
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMaxTextSize="25sp"
-                    android:autoSizeMinTextSize="10sp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textStyle="italic"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimary"
-                    />
-                <TextView
-                    android:id="@+id/shopMobile"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="3"
-                    android:text=""
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMaxTextSize="25sp"
-                    android:autoSizeMinTextSize="10sp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textStyle="italic"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimary"
-                    />
+        <LinearLayout
+            android:id="@+id/ll_bill"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9.4"
+            android:weightSum="10"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:layout_margin="15dp"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                android:weightSum="21">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="3"
-                    android:orientation="horizontal"
-                    android:weightSum="12">
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3"
-                        android:text="GST No. - "
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="20sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"/>
+                    android:layout_weight="0.4" />
 
-                    <TextView
-                        android:id="@+id/gstNumber"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_weight="9"
-                        android:autoSizeMaxTextSize="20sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:autoSizeTextType="uniform"
-                        android:fontFamily="sans-serif-condensed"
-
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:textStyle="italic|bold" />
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2.25"
-            android:orientation="vertical"
-            android:weightSum="12">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
-                android:layout_marginHorizontal="10dp"
-                android:orientation="horizontal"
-                android:weightSum="12">
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:text="Invoice No"
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMaxTextSize="20sp"
-                    android:autoSizeMinTextSize="10sp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textStyle="italic|bold"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimary"/>
-                <EditText
-                    android:id="@+id/invoiceNo"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:background="@null"
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMaxTextSize="20sp"
-                    android:autoSizeMinTextSize="5sp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textStyle="italic|bold"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimary"
-                    android:inputType="number"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:layout_marginLeft="10dp"
-                    android:text="Invoice Date"
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMaxTextSize="20sp"
-                    android:autoSizeMinTextSize="10sp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textStyle="italic|bold"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimary"/>
-                <EditText
-                    android:id="@+id/invoiceDate"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:background="@null"
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMaxTextSize="20sp"
-                    android:autoSizeMinTextSize="5sp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textStyle="italic|bold"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimary"
-                    android:layout_marginHorizontal="5dp"
-                    android:inputType="text"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
-                android:layout_marginHorizontal="10dp"
-                android:orientation="horizontal"
-                android:weightSum="12">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:id="@+id/shopName"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="2"
-                    android:text="Name"
+                    android:autoSizeMaxTextSize="50sp"
+                    android:autoSizeMinTextSize="15sp"
                     android:autoSizeTextType="uniform"
-                    android:autoSizeMaxTextSize="20sp"
-                    android:autoSizeMinTextSize="10sp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textStyle="italic|bold"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimary"/>
-                <TextView
-                    android:id="@+id/customerName"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="4"
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMaxTextSize="20sp"
-                    android:autoSizeMinTextSize="5sp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textStyle="italic|bold"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimary"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:fontFamily="cursive"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/colorText"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_weight="0.1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="2.8"
-                    android:layout_marginLeft="10dp"
-                    android:text="Mobile No."
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMaxTextSize="20sp"
-                    android:autoSizeMinTextSize="10sp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textStyle="italic|bold"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimary"/>
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2.5">
+
+                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/shopLogo"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:stateListAnimator="@animator/button_state_list_anim"
+                            app:civ_border_color="#EEEEEE"
+                            app:civ_border_width="4dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_weight="7"
+                        android:orientation="vertical"
+                        android:weightSum="12">
+
+                        <TextView
+                            android:id="@+id/shopAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="3"
+                            android:autoSizeMaxTextSize="25sp"
+                            android:autoSizeMinTextSize="10sp"
+                            android:autoSizeTextType="uniform"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text=""
+                            android:textColor="@color/colorText"
+                            android:textColorHint="@color/colorPrimary"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/shopEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="3"
+                            android:autoSizeMaxTextSize="25sp"
+                            android:autoSizeMinTextSize="10sp"
+                            android:autoSizeTextType="uniform"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text=""
+                            android:textColor="@color/colorText"
+                            android:textColorHint="@color/colorPrimary"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/shopMobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="3"
+                            android:autoSizeMaxTextSize="25sp"
+                            android:autoSizeMinTextSize="10sp"
+                            android:autoSizeTextType="uniform"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text=""
+                            android:textColor="@color/colorText"
+                            android:textColorHint="@color/colorPrimary"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="3"
+                            android:orientation="horizontal"
+                            android:weightSum="12">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                android:autoSizeMaxTextSize="20sp"
+                                android:autoSizeMinTextSize="10sp"
+                                android:autoSizeTextType="uniform"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="GST No. : "
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/gstNumber"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_weight="9"
+                                android:autoSizeMaxTextSize="20sp"
+                                android:autoSizeMinTextSize="10sp"
+                                android:autoSizeTextType="uniform"
+                                android:fontFamily="sans-serif-condensed"
+
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
                 <TextView
-                    android:id="@+id/customerMobile"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3.2"
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMaxTextSize="20sp"
+                    android:id="@+id/header"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:autoSizeMaxTextSize="30sp"
                     android:autoSizeMinTextSize="5sp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textStyle="italic|bold"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimary"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
-                android:layout_marginHorizontal="10dp"
-                android:orientation="horizontal"
-                android:weightSum="12">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2.5"
-                    android:text="Address"
                     android:autoSizeTextType="uniform"
-                    android:autoSizeMaxTextSize="20sp"
-                    android:autoSizeMinTextSize="10sp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textStyle="italic|bold"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimary"/>
-                <TextView
-                    android:id="@+id/customerAddress"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="9.5"
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMaxTextSize="20sp"
-                    android:autoSizeMinTextSize="5sp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textStyle="italic|bold"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textColorHint="@color/colorPrimary"/>
+                    android:background="@color/lightBlue"
+                    android:gravity="center"
+                    android:text="TAX Invoice"
+                    android:textColor="@color/colorText"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="2.25"
+                    android:orientation="vertical"
+                    android:weightSum="12">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginHorizontal="1dp"
+                        android:layout_weight="4"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:autoSizeMaxTextSize="20sp"
+                            android:autoSizeMinTextSize="10sp"
+                            android:autoSizeTextType="uniform"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Name"
+                            android:textColor="@color/colorText"
+                            android:textColorHint="@color/colorPrimary"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/customerName"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="2dp"
+                            android:layout_weight="3"
+                            android:autoSizeMaxTextSize="20sp"
+                            android:autoSizeMinTextSize="2sp"
+                            android:autoSizeTextType="uniform"
+                            android:background="@null"
+                            android:fontFamily="sans-serif-condensed"
+                            android:inputType="number"
+                            android:textColor="@color/colorText"
+                            android:textColorHint="@color/colorPrimary" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2.5"
+                            android:autoSizeMaxTextSize="20sp"
+                            android:autoSizeMinTextSize="10sp"
+                            android:autoSizeTextType="uniform"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Invoice Date"
+                            android:textColor="@color/colorText"
+                            android:textColorHint="@color/colorPrimary"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/invoiceDate"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="2dp"
+                            android:layout_weight="2.5"
+                            android:autoSizeMaxTextSize="20sp"
+                            android:autoSizeMinTextSize="5sp"
+                            android:autoSizeTextType="uniform"
+                            android:background="@null"
+                            android:fontFamily="sans-serif-condensed"
+                            android:inputType="text"
+                            android:textColor="@color/colorText"
+                            android:textColorHint="@color/colorPrimary" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginHorizontal="1dp"
+                        android:layout_weight="4"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:autoSizeMaxTextSize="20sp"
+                            android:autoSizeMinTextSize="10sp"
+                            android:autoSizeTextType="uniform"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Mobile No"
+                            android:textColor="@color/colorText"
+                            android:textColorHint="@color/colorPrimary"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/customerMobile"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="2dp"
+                            android:layout_weight="3"
+                            android:autoSizeMaxTextSize="20sp"
+                            android:autoSizeMinTextSize="5sp"
+                            android:autoSizeTextType="uniform"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textColor="@color/colorText"
+                            android:textColorHint="@color/colorPrimary" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2.5"
+                            android:autoSizeMaxTextSize="20sp"
+                            android:autoSizeMinTextSize="10sp"
+                            android:autoSizeTextType="uniform"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Invoice No"
+                            android:textColor="@color/colorText"
+                            android:textColorHint="@color/colorPrimary"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/invoiceNo"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="2dp"
+                            android:layout_weight="2.5"
+                            android:autoSizeMaxTextSize="20sp"
+                            android:autoSizeMinTextSize="5sp"
+                            android:autoSizeTextType="uniform"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textColor="@color/colorText"
+                            android:textColorHint="@color/colorPrimary" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginHorizontal="1dp"
+                        android:layout_weight="4"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:autoSizeMaxTextSize="20sp"
+                            android:autoSizeMinTextSize="10sp"
+                            android:autoSizeTextType="uniform"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="Address"
+                            android:textColor="@color/colorText"
+                            android:textColorHint="@color/colorPrimary"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/customerAddress"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="8"
+                            android:autoSizeMaxTextSize="20sp"
+                            android:autoSizeMinTextSize="5sp"
+                            android:autoSizeTextType="uniform"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textColor="@color/colorText"
+                            android:textColorHint="@color/colorPrimary" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_weight="0.2" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="10">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:divider="@drawable/rect"
+                        android:orientation="vertical"
+                        android:stretchColumns="*"
+                        android:weightSum="20.5">
+
+                        <LinearLayout
+                            android:id="@+id/table_header"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1.7"
+                            android:background="@color/lightBlue"
+                            android:weightSum="11.5">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="5sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+                                android:text="S.NO"
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="4"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="5sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+                                android:text="PRODUCT/SERVICE"
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="5sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+                                android:text="HSN/SAC"
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="5sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+                                android:text="ㅤQTY.ㅤ"
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="5sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+                                android:text="ㅤRATEㅤ"
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="2"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="5sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+                                android:text="ㅤAMOUNTㅤ"
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1.6"
+                            android:background="@null"
+                            android:weightSum="11.5">
+
+                            <TextView
+                                android:id="@+id/sNo1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="number"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/description1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="4"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="left"
+
+                                android:inputType="text"
+                                android:text=""
+                                android:textColor="@color/colorText" />
+
+                            <TextView
+                                android:id="@+id/hsn_sac1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/qty1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/rate1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/amount1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="2"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_margin="2sp"
+                            android:layout_weight="1.6"
+                            android:background="@null"
+                            android:weightSum="11.5">
+
+                            <TextView
+                                android:id="@+id/sNo2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="number"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/description2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="4"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="left"
+
+                                android:inputType="text"
+                                android:text=""
+                                android:textColor="@color/colorText" />
+
+                            <TextView
+                                android:id="@+id/hsn_sac2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/qty2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/rate2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/amount2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="2"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_margin="2sp"
+                            android:layout_weight="1.6"
+                            android:background="@null"
+                            android:weightSum="11.5">
+
+                            <TextView
+                                android:id="@+id/sNo3"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="number"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/description3"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="4"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="left"
+
+                                android:inputType="text"
+                                android:text=""
+                                android:textColor="@color/colorText" />
+
+                            <TextView
+                                android:id="@+id/hsn_sac3"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/qty3"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/rate3"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/amount3"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="2"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_margin="2sp"
+                            android:layout_weight="1.6"
+                            android:background="@null"
+                            android:weightSum="11.5">
+
+                            <TextView
+                                android:id="@+id/sNo4"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="number"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/description4"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="4"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="left"
+
+                                android:inputType="text"
+                                android:text=""
+                                android:textColor="@color/colorText" />
+
+                            <TextView
+                                android:id="@+id/hsn_sac4"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/qty4"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+
+                                android:textColorHint="@color/colorPrimary"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/rate4"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/amount4"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="2"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_margin="2sp"
+                            android:layout_weight="1.6"
+                            android:background="@null"
+                            android:weightSum="11.5">
+
+                            <TextView
+                                android:id="@+id/sNo5"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+                                android:inputType="number"
+                                android:text=""
+                                android:textColor="@color/colorText"
+
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/description5"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="4"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="left"
+
+                                android:inputType="text"
+                                android:text=""
+                                android:textColor="@color/colorText" />
+
+                            <TextView
+                                android:id="@+id/hsn_sac5"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/qty5"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/rate5"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/amount5"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="2"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_margin="2sp"
+                            android:layout_weight="1.6"
+                            android:background="@null"
+                            android:weightSum="11.5">
+
+                            <TextView
+                                android:id="@+id/sNo6"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="number"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/description6"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="4"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="left"
+
+                                android:inputType="text"
+                                android:text=""
+                                android:textColor="@color/colorText" />
+
+                            <TextView
+                                android:id="@+id/hsn_sac6"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/qty6"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/rate6"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/amount6"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="2"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_margin="2sp"
+                            android:layout_weight="1.6"
+                            android:background="@null"
+                            android:weightSum="11.5">
+
+                            <TextView
+                                android:id="@+id/sNo7"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="number"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/description7"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="4"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="left"
+
+                                android:inputType="text"
+                                android:text=""
+                                android:textColor="@color/colorText" />
+
+                            <TextView
+                                android:id="@+id/hsn_sac7"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/qty7"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/rate7"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/amount7"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="2"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_margin="2sp"
+                            android:layout_weight="1.6"
+                            android:background="@null"
+                            android:weightSum="11.5">
+
+                            <TextView
+                                android:id="@+id/sNo8"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="number"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/description8"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="4"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="left"
+
+                                android:inputType="text"
+                                android:text=""
+                                android:textColor="@color/colorText" />
+
+                            <TextView
+                                android:id="@+id/hsn_sac8"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/qty8"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/rate8"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:id="@+id/amount8"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="2"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+
+                                android:inputType="numberDecimal"
+                                android:text=""
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/bottom_line"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_weight="0.1"
+                            android:background="@color/lightBlue"
+                            android:orientation="vertical" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_margin="2sp"
+                            android:layout_weight="1.5"
+                            android:background="@null"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="10sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed-light"
+                                android:gravity="center"
+                                android:textColor="@color/colorText"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="3"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="10sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed-light"
+                                android:gravity="right"
+                                android:text="SUBTOTAL"
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/total"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="2"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="right"
+                                android:inputType="numberDecimal"
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1.5"
+                            android:background="@null"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:id="@+id/otherInfo2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="10sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+                                android:inputType="text"
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="italic" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="3"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="10sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed-light"
+                                android:gravity="right"
+                                android:text="CGST"
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/cgst_tax"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.6"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="right"
+                                android:inputType="numberDecimal"
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.4"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:fontFamily="sans-serif-condensed-light"
+                                android:gravity="center"
+                                android:text="%"
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1.5"
+                            android:background="@null"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:id="@+id/otherCharges"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="5"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="10sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+                                android:inputType="numberDecimal"
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="3"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="10sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed-light"
+                                android:gravity="right"
+                                android:text="SGST"
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/sgst_tax"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="1.6"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="right"
+                                android:inputType="numberDecimal"
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.4"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:fontFamily="sans-serif-condensed-light"
+                                android:gravity="center"
+                                android:text="%"
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1.5"
+                            android:background="@null"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="8"
+                                android:autoSizeMaxTextSize="20sp"
+                                android:autoSizeMinTextSize="10sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed-light"
+                                android:gravity="right"
+                                android:text="TOTAL BALANCE DUE"
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/amountCustomer"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2sp"
+                                android:layout_weight="2"
+                                android:autoSizeMaxTextSize="22sp"
+                                android:autoSizeMinTextSize="1sp"
+                                android:autoSizeTextType="uniform"
+                                android:background="@null"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="right"
+                                android:inputType="numberDecimal"
+                                android:textColor="@color/colorText"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/bottom_line2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_weight="0.1"
+                    android:background="@color/lightBlue"
+                    android:orientation="vertical" />
+
             </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.2"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="10dp"
-                android:background="@drawable/tableborder"
-                android:weightSum="20.5"
-                android:orientation="vertical"
-                android:stretchColumns="*"
-                android:divider="@drawable/rect">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.7"
-                    android:weightSum="10"
-                    android:background="@drawable/tableborder">
-                    <TextView
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text="S.No"
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="1"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="8sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text="Description"
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="4"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="8sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text="Qty."
-                        android:layout_weight="1.5"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text="Rate."
-                        android:layout_weight="1.5"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        />
-                    <TextView
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text="Amount"
-                        android:layout_weight="2"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.6"
-                    android:weightSum="10"
-                    android:background="@drawable/tableborder">
-                    <EditText
-                        android:id="@+id/sNo1"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="1"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="8sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="number"/>
-                    <EditText
-                        android:id="@+id/description1"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="4"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:gravity="center"
-                        android:inputType="text"
-                        />
-                    <EditText
-                        android:id="@+id/qty1"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="1.5"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-
-                        />
-                    <EditText
-                        android:id="@+id/rate1"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="1.5"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                    <EditText
-                        android:id="@+id/amount1"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="2"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.6"
-                    android:weightSum="10"
-                    android:background="@drawable/tableborder">
-                    <EditText
-                        android:id="@+id/sNo2"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="1"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="8sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="number"/>
-                    <EditText
-                        android:id="@+id/description2"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="4"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:gravity="center"
-                        android:inputType="text"
-                        />
-                    <EditText
-                        android:id="@+id/qty2"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="1.5"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-
-                        />
-
-                    <EditText
-                        android:id="@+id/rate2"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.5"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:autoSizeTextType="uniform"
-                        android:background="@drawable/tableborder"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        android:text=""
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:textStyle="italic|bold" />
-                    <EditText
-                        android:id="@+id/amount2"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="2"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.6"
-                    android:weightSum="10"
-                    android:background="@drawable/tableborder">
-                    <EditText
-                        android:id="@+id/sNo3"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="1"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="8sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="number"/>
-                    <EditText
-                        android:id="@+id/description3"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="4"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:gravity="center"
-                        android:inputType="text"
-                        />
-                    <EditText
-                        android:id="@+id/qty3"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="1.5"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-
-                        />
-
-                    <EditText
-                        android:id="@+id/rate3"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.5"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:autoSizeTextType="uniform"
-                        android:background="@drawable/tableborder"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        android:text=""
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:textStyle="italic|bold" />
-                    <EditText
-                        android:id="@+id/amount3"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="2"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.6"
-                    android:weightSum="10"
-                    android:background="@drawable/tableborder">
-                    <EditText
-                        android:id="@+id/sNo4"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="1"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="8sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="number"/>
-                    <EditText
-                        android:id="@+id/description4"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="4"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:gravity="center"
-                        android:inputType="text"
-                        />
-
-                    <EditText
-                        android:id="@+id/qty4"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.5"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:autoSizeTextType="uniform"
-                        android:background="@drawable/tableborder"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:text=""
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:textStyle="italic|bold"
-                        android:inputType="numberDecimal"
-
-                        />
-                    <EditText
-                        android:id="@+id/rate4"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="1.5"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                    <EditText
-                        android:id="@+id/amount4"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="2"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.6"
-                    android:weightSum="10"
-                    android:background="@drawable/tableborder">
-
-                    <EditText
-                        android:id="@+id/sNo5"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="8sp"
-                        android:autoSizeTextType="uniform"
-                        android:background="@drawable/tableborder"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:text=""
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:textStyle="italic|bold"
-                        android:inputType="number"/>
-
-                    <EditText
-                        android:id="@+id/description5"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="4"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:gravity="center"
-                        android:inputType="text"
-                        />
-                    <EditText
-                        android:id="@+id/qty5"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="1.5"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                    <EditText
-                        android:id="@+id/rate5"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="1.5"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                    <EditText
-                        android:id="@+id/amount5"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="2"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.6"
-                    android:weightSum="10"
-                    android:background="@drawable/tableborder">
-                    <EditText
-                        android:id="@+id/sNo6"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="1"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="8sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="number"/>
-                    <EditText
-                        android:id="@+id/description6"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="4"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:gravity="center"
-                        android:inputType="text"
-                        />
-                    <EditText
-                        android:id="@+id/qty6"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="1.5"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                    <EditText
-                        android:id="@+id/rate6"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="1.5"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                    <EditText
-                        android:id="@+id/amount6"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="2"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.6"
-                    android:weightSum="10"
-                    android:background="@drawable/tableborder">
-                    <EditText
-                        android:id="@+id/sNo7"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="1"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="8sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="number"/>
-                    <EditText
-                        android:id="@+id/description7"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="4"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:gravity="center"
-                        android:inputType="text"
-                        />
-                    <EditText
-                        android:id="@+id/qty7"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="1.5"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                    <EditText
-                        android:id="@+id/rate7"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="1.5"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                    <EditText
-                        android:id="@+id/amount7"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="2"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.6"
-                    android:weightSum="10"
-                    android:background="@drawable/tableborder">
-                    <EditText
-                        android:id="@+id/sNo8"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="1"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="8sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="number"/>
-                    <EditText
-                        android:id="@+id/description8"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="4"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:gravity="center"
-                        android:inputType="text"
-                        />
-
-                    <EditText
-                        android:id="@+id/qty8"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.5"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:autoSizeTextType="uniform"
-                        android:background="@drawable/tableborder"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        android:text=""
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:textStyle="italic|bold" />
-                    <EditText
-                        android:id="@+id/rate8"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="1.5"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                    <EditText
-                        android:id="@+id/amount8"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text=""
-                        android:layout_weight="2"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.5"
-                    android:weightSum="10"
-                    android:background="@drawable/tableborder">
-                    <TextView
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text="Qty in"
-                        android:layout_weight="2"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed-light"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:gravity="center"
-                        />
-                    <EditText
-                        android:id="@+id/otherInfo1"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:hint="(eg:- in gram)"
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="3"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="text"
-                        />
-                    <TextView
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text="Total"
-                        android:layout_weight="3"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed-light"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        />
-                    <EditText
-                        android:id="@+id/total"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:layout_weight="2"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.5"
-                    android:weightSum="10"
-                    android:background="@drawable/tableborder">
-                    <EditText
-                        android:id="@+id/otherInfo2"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:hint="Other Information"
-                        android:background="@drawable/tableborder"
-                        android:layout_weight="5"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="text"
-                        />
-
-                    <TextView
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text="GST"
-                        android:layout_weight="3"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed-light"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        />
-
-                    <EditText
-                        android:id="@+id/tax"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.6"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:autoSizeTextType="uniform"
-                        android:background="@drawable/tableborder"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:textStyle="italic|bold" />
-                    <TextView
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text="%"
-                        android:layout_weight="0.4"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed-light"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.5"
-                    android:weightSum="10"
-                    android:background="@drawable/tableborder">
-                    <TextView
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text="Other Charges"
-                        android:layout_weight="3"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed-light"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        />
-                    <EditText
-                        android:id="@+id/otherCharges"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:layout_weight="2"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                    <TextView
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text="Discount"
-                        android:layout_weight="3"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed-light"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        />
-
-                    <EditText
-                        android:id="@+id/discount"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:autoSizeTextType="uniform"
-                        android:background="@drawable/tableborder"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:textStyle="italic|bold" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.5"
-                    android:weightSum="10"
-                    android:background="@drawable/tableborder">
-                    <TextView
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:text="Total Amount To Be Paid"
-                        android:layout_weight="8"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="20sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed-light"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        />
-                    <EditText
-                        android:id="@+id/amountCustomer"
-                        android:layout_height="match_parent"
-                        android:layout_width="0dp"
-                        android:layout_weight="2"
-                        android:background="@drawable/tableborder"
-                        android:autoSizeTextType="uniform"
-                        android:autoSizeMaxTextSize="22sp"
-                        android:autoSizeMinTextSize="10sp"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="italic|bold"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textColorHint="@color/colorPrimary"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        />
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.2"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.2"
+            android:layout_weight="0.6"
             android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
             android:weightSum="10">
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2.5"/>
+                android:layout_weight="2.5" />
+
             <Button
                 android:id="@+id/save"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="5"
-                android:background="@drawable/anibutton"
-                android:stateListAnimator="@animator/button_state_list_anim"
-                android:gravity="center"
-                android:text="Save"
-                android:fontFamily="monospace"
-                android:textColor="#FFFFFF"
-                android:autoSizeTextType="uniform"
                 android:autoSizeMaxTextSize="22sp"
                 android:autoSizeMinTextSize="10sp"
+                android:autoSizeTextType="uniform"
+                android:background="@drawable/anibutton"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:stateListAnimator="@animator/button_state_list_anim"
+                android:text="Save"
+                android:textColor="#FFFFFF"
                 android:textStyle="italic" />
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2.25"/>
+                android:layout_weight="2.25" />
         </LinearLayout>
     </LinearLayout>
+
 </RelativeLayout>

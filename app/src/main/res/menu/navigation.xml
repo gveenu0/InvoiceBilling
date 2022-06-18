@@ -11,5 +11,5 @@
     <item
             android:id="@+id/customerDetails"
             android:icon="@drawable/pastinvoice"
-            android:title="Past Invoices"/>
+            android:title="Invoices"/>
 </menu>

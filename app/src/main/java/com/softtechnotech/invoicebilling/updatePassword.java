@@ -2,7 +2,6 @@ package com.softtechnotech.invoicebilling;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-//import android.support.annotation.NonNull;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,7 +33,7 @@ public class updatePassword extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         rootRef = FirebaseDatabase.getInstance().getReference();
-        demoRef = rootRef.child("Invoice").child(login.strUsername);
+        demoRef = rootRef.child("Invoice").child(home.userName);
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +74,6 @@ public class updatePassword extends AppCompatActivity {
     }
     public void startActivityUpdate(){
         Intent intent = new Intent(this, home.class);
-        login.videoPlay = "notPlay";
         startActivity(intent);
         nDialog.dismiss();
     }

@@ -46,7 +46,6 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
 
     @Override
     public void loadComplete(int nbPages) {
-        PdfDocument.Meta meta = pdfView.getDocumentMeta();
         printBookmarksTree(pdfView.getTableOfContents(), "-");
     }
 

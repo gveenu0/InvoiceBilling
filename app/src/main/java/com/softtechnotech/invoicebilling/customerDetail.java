@@ -3,7 +3,7 @@ package com.softtechnotech.invoicebilling;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
-//import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,14 +25,15 @@ import java.util.List;
 
 public class customerDetail extends AppCompatActivity {
     DatabaseHelper myDb;
-    DatabaseReference rootRef, demoRef, demoRef1;
+    DatabaseReference rootRef, demoRef;
     Button next;
-    EditText customerName, customerMobile, customerAddress, customerPincode, customerEmail, otherDetail;
-    //Spinner rBackground;
-    public static String strRBackground, strCustomerName, strCustomerMobile, strCustomerAddress, strCustomerPincode, strCustomerEmail, strOtherDetail;
+    EditText customerName, customerMobile, customerAddress, customerPincode, customerEmail;
+    Spinner rBackground,gst_rate;
+    public static String strRBackground, strGstrate, strCustomerName, strCustomerMobile, strCustomerAddress, strCustomerPincode, strCustomerEmail;
     String preShopEmail = null, detailsCheck = "Incorrect";
     ProgressDialog nDialog;
     public static List<String> list = new ArrayList<>();
+    public static List<String> list_gst_rate = new ArrayList<>();
 
     @Override
     protected void onStart() {
@@ -59,24 +60,22 @@ public class customerDetail extends AppCompatActivity {
         customerAddress = findViewById(R.id.customerAddress);
         customerPincode = findViewById(R.id.customerPincode);
         customerEmail = findViewById(R.id.customerEmail);
-        otherDetail = findViewById(R.id.otherDetail);
-        //rBackground = findViewById(R.id.rBackground);
+        rBackground = findViewById(R.id.rBackground);
+        gst_rate = findViewById(R.id.gst_rate);
         next = findViewById(R.id.next);
-/*
+
         rBackground.setSelection(0);
-        list.add("Select Receipt Design");
-        list.add("Flower");
-        list.add("Jewel");
-        list.add("God");
-        list.add("Leaf");
-        list.add("Square");
+        list.add("Select Color");
+        list.add("Blue");
+        list.add("Red");
+        list.add("Green");
+        list.add("Violet");
         list.add("Yellow");
-        list.add("Green Brush");
-        list.add("Gray Flower");
-        list.add("Crystal");
-        list.add("Old paper");
-        list.add("Ancient Paper");
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,list);
+        list.add("Sky Blue");
+        list.add("Orange");
+        list.add("Grey");
+        list.add("Indigo");
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, list);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         rBackground.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -86,16 +85,36 @@ public class customerDetail extends AppCompatActivity {
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                strRBackground = "Select Receipt Design";
-
+                strRBackground = "Select Color";
             }
         });
         rBackground.setAdapter(arrayAdapter);
 
- */
+        gst_rate.setSelection(0);
+        list_gst_rate.clear();
+        list_gst_rate.add("Select GST Rate (Default 0%)");
+        list_gst_rate.add("5%");
+        list_gst_rate.add("12%");
+        list_gst_rate.add("18%");
+        list_gst_rate.add("28%");
+        ArrayAdapter<String> arrayAdapter_gst_rate = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, list_gst_rate);
+        arrayAdapter_gst_rate.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        gst_rate.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int i, long l) {
+                gst_rate.setSelection(i);
+                strGstrate = list_gst_rate.get(i);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                strGstrate = "Select GST Rate (Default 18%)";
+
+            }
+        });
+        gst_rate.setAdapter(arrayAdapter_gst_rate);
 
         rootRef = FirebaseDatabase.getInstance().getReference();
-        //demoRef = rootRef.child("Invoice").child(login.strUsername);
+        demoRef = rootRef.child("Invoice").child(home.userName);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,7 +124,7 @@ public class customerDetail extends AppCompatActivity {
                 nDialog.setCancelable(true);
                 nDialog.show();
 
-                /*demoRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                demoRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.child("shopDetail").exists()){
@@ -116,110 +135,99 @@ public class customerDetail extends AppCompatActivity {
                             nDialog.dismiss();
                             return;
                         }
-                        detailsCheck = "Incorrect";
-                        if(dataSnapshot.child("ownerDetail").exists()){
-                            detailsCheck = "correct";
-                        }
-                        else {
-                            Toast.makeText(customerDetail.this, "Please update owner details",Toast.LENGTH_LONG).show();
-                            nDialog.dismiss();
-                            return;
-                        }*/
-                if(preShopEmail != null){
-                        //if(detailsCheck == "correct"){
-                            strCustomerName = customerName.getText().toString();
-                            strCustomerMobile = customerMobile.getText().toString();
-                            strCustomerAddress = customerAddress.getText().toString();
-                            strCustomerPincode = customerPincode.getText().toString();
-                            strCustomerEmail = customerEmail.getText().toString();
-                            strOtherDetail = otherDetail.getText().toString();
-                            if(strCustomerName.matches("")){
-                                Toast.makeText(customerDetail.this, "Enter customer name",Toast.LENGTH_LONG).show();
-                                nDialog.dismiss();
-                                return;
-                            }
-                            if(!strCustomerName.matches("[a-zA-Z\\s]*")){
-                                Toast.makeText(customerDetail.this, "Enter valid name",Toast.LENGTH_LONG).show();
-                                nDialog.dismiss();
-                                return;
-                            }
-                            if(strCustomerMobile.matches("")){
-                                Toast.makeText(customerDetail.this, "Enter mobile number",Toast.LENGTH_LONG).show();
-                                nDialog.dismiss();
-                                return;
-                            }
-                            if(strCustomerMobile.length() != 10){
-                                Toast.makeText(customerDetail.this, "Enter valid mobile number",Toast.LENGTH_LONG).show();
-                                nDialog.dismiss();
-                                return;
-                            }
-                            if(strCustomerAddress.matches("")){
-                                Toast.makeText(customerDetail.this, "Enter address",Toast.LENGTH_LONG).show();
-                                nDialog.dismiss();
-                                return;
-                            }
-                            if(strCustomerPincode.matches("")){
-                                //Toast.makeText(customerDetail.this, "Enter pincode",Toast.LENGTH_LONG).show();
-                                strCustomerPincode = "-";
-                            }
-                            /*if(strCustomerPincode.length() != 6){
-                                Toast.makeText(customerDetail.this, "Enter valid pincode number",Toast.LENGTH_LONG).show();
-                                nDialog.dismiss();
-                                return;
-                            }*/
-                            if(strCustomerEmail.matches("")){
-                                strCustomerEmail = "None";
-                            }
-                            else if(!(strCustomerEmail.matches("[a-zA-Z0-9.]+@[a-z]+\\.+[a-z]+") || strCustomerEmail.matches("[a-zA-Z0-9.]+@[a-z]+\\.+[a-z]+\\.+[a-z]+"))){
-                                Toast.makeText(customerDetail.this, "Enter valid email",Toast.LENGTH_LONG).show();
-                                nDialog.dismiss();
-                                return;
-                            }
+                        if(preShopEmail != null){
+                            if(detailsCheck.equals("correct")){
+                                strCustomerName = customerName.getText().toString();
+                                strCustomerMobile = customerMobile.getText().toString();
+                                strCustomerAddress = customerAddress.getText().toString();
+                                strCustomerPincode = customerPincode.getText().toString();
+                                strCustomerEmail = customerEmail.getText().toString();
+                                if(strCustomerName.matches("")){
+                                    Toast.makeText(customerDetail.this, "Enter customer name",Toast.LENGTH_LONG).show();
+                                    nDialog.dismiss();
+                                    return;
+                                }
+                                if(!strCustomerName.matches("[a-zA-Z\\s]*")){
+                                    Toast.makeText(customerDetail.this, "Enter valid name(alphabate and space only)",Toast.LENGTH_LONG).show();
+                                    nDialog.dismiss();
+                                    return;
+                                }
+                                if(strCustomerMobile.matches("")){
+                                    Toast.makeText(customerDetail.this, "Enter mobile number",Toast.LENGTH_LONG).show();
+                                    nDialog.dismiss();
+                                    return;
+                                }
+                                if(strCustomerMobile.length() != 10){
+                                    Toast.makeText(customerDetail.this, "Enter valid mobile number",Toast.LENGTH_LONG).show();
+                                    nDialog.dismiss();
+                                    return;
+                                }
+                                if(strCustomerAddress.matches("")){
+                                    Toast.makeText(customerDetail.this, "Enter address",Toast.LENGTH_LONG).show();
+                                    nDialog.dismiss();
+                                    return;
+                                }
+                                if(strCustomerPincode.matches("")){
+                                    //Toast.makeText(customerDetail.this, "Enter pincode",Toast.LENGTH_LONG).show();
+                                    strCustomerPincode = "-";
+                                }
+                                if(strCustomerPincode.length() != 6){
+                                    Toast.makeText(customerDetail.this, "Enter valid pincode number",Toast.LENGTH_LONG).show();
+                                    nDialog.dismiss();
+                                    return;
+                                }
+                                if(strCustomerEmail.matches("")){
+                                    strCustomerEmail = "None";
+                                }
+                                else if(!(strCustomerEmail.matches("[a-zA-Z0-9.]+@[a-z]+\\.+[a-z]+") || strCustomerEmail.matches("[a-zA-Z0-9.]+@[a-z]+\\.+[a-z]+\\.+[a-z]+"))){
+                                    Toast.makeText(customerDetail.this, "Enter valid email",Toast.LENGTH_LONG).show();
+                                    nDialog.dismiss();
+                                    return;
+                                }
                             startNextActivity();
-                        //}
-                        /*else{
-                            Toast.makeText(customerDetail.this, "Preshop Email is null",Toast.LENGTH_LONG).show();
+                            }
+                            else{
+                                Toast.makeText(customerDetail.this, "Preshop Email is null",Toast.LENGTH_LONG).show();
+                                nDialog.dismiss();
+                            }
+                        }
+                        else{
+                            Toast.makeText(customerDetail.this, "Please update your shop details",Toast.LENGTH_LONG).show();
+                            startUpdateShopDetailAvtivity();
                             nDialog.dismiss();
-                            return;
-                        }*/
+                        }
                     }
-                else{
-                    Toast.makeText(customerDetail.this, "Please update your shop details",Toast.LENGTH_LONG).show();
-                    startUpdateShopDetailAvtivity();
-                    nDialog.dismiss();
-                    return;
-                }
-                    /*
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                         startSomethingWentWrongActivity();
                     }
-                });*/
-
+                });
             }
         });
     }
     public void startNextActivity(){
-        Intent intent = new Intent(this, transactionDetail.class);
+        Intent intent = new Intent(this, itemDetail.class);
         list.clear();
+        list_gst_rate.clear();
         startActivity(intent);
         nDialog.dismiss();
     }
     public void startSomethingWentWrongActivity(){
         Intent intent = new Intent(this, somethingWentWrong.class);
         list.clear();
+        list_gst_rate.clear();
         startActivity(intent);
         nDialog.dismiss();
     }
     public void startHomeActivity(){
         Intent intent = new Intent(this, home.class);
         list.clear();
+        list_gst_rate.clear();
         startActivity(intent);
     }
     @Override
     public void onBackPressed() {
         startHomeActivity();
-        login.videoPlay = "notPlay";
     }
     public void startUpdateShopDetailAvtivity(){
         Intent intent = new Intent(this, updateShopDetails.class);

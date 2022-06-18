@@ -3,7 +3,6 @@ package com.softtechnotech.invoicebilling;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
-//import android.support.annotation.NonNull;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,11 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,13 +22,12 @@ import com.google.firebase.database.ValueEventListener;
 public class updateShopDetails extends AppCompatActivity {
     DatabaseHelper myDb;
     DatabaseReference rootRef, demoRef, demoRef1;
-    private FirebaseAuth mAuth;
     ProgressDialog nDialog;
     Button update;
     public static int check;
     int flag = 0;
-    EditText shopName, shopMobile, shopAddress, shopPincode, shopEmail, gstNumber, slogan;
-    public static String strShopName, strShopMobile, strShopAddress, strShopPincode, strShopEmail, strGstNumber, strSlogan;
+    EditText shopName, shopMobile, shopAddress, shopPincode, shopEmail, gstNumber;
+    public static String strShopName, strShopMobile, strShopAddress, strShopPincode, strShopEmail, strGstNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,13 +42,12 @@ public class updateShopDetails extends AppCompatActivity {
         shopPincode = findViewById(R.id.shopPincode);
         shopEmail = findViewById(R.id.shopEmail);
         gstNumber = findViewById(R.id.gstNumber);
-        slogan = findViewById(R.id.slogan);
 
         shopEmail.setText(home.preShopEmail);
         shopEmail.setEnabled(false);
 
         rootRef = FirebaseDatabase.getInstance().getReference();
-        String strNewShopName = null, strNewShopAddress = null, strNewShopMobile = null, strNewShopEmail = null, strNewGstNumber = null, strNewPincode = null, strNewSlogan = null;
+        String strNewShopName, strNewShopAddress, strNewShopMobile, strNewShopEmail, strNewGstNumber, strNewPincode;
         Cursor res = myDb.getAllData(home.preShopEmail);
         if(res != null && res.getCount() > 0){
             res.moveToFirst();
@@ -70,12 +64,10 @@ public class updateShopDetails extends AppCompatActivity {
                 shopPincode.setText(strNewPincode);
                 strNewGstNumber = res.getString(5);
                 gstNumber.setText(strNewGstNumber);
-                strNewSlogan = res.getString(6);
-                slogan.setText(strNewSlogan);
                 flag = 1;
             }while(res.moveToNext());
         }
-        demoRef = rootRef.child("Invoice").child(login.strUsername);
+        demoRef = rootRef.child("Invoice").child(home.userName);
         demoRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -98,14 +90,8 @@ public class updateShopDetails extends AppCompatActivity {
                     }
                     if(dataSnapshot.child("shopDetail").child("gstNumber").exists()){
                         strGstNumber = dataSnapshot.child("shopDetail").child("gstNumber").getValue().toString();
-                        if(strGstNumber == "None"){
+                        if(strGstNumber.equals("None")){
                             gstNumber.setText("");
-                        }
-                    }
-                    if(dataSnapshot.child("shopDetail").child("slogan").exists()){
-                        strSlogan = dataSnapshot.child("shopDetail").child("slogan").getValue().toString();
-                        if(strSlogan == "None"){
-                            slogan.setText("");
                         }
                     }
                 }
@@ -118,9 +104,9 @@ public class updateShopDetails extends AppCompatActivity {
         });
 
 
-        mAuth = FirebaseAuth.getInstance();
+        FirebaseAuth.getInstance();
         rootRef = FirebaseDatabase.getInstance().getReference();
-        //demoRef = rootRef.child("Invoice").child(login.strUsername);
+        demoRef = rootRef.child("Invoice").child(home.userName);
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,7 +121,6 @@ public class updateShopDetails extends AppCompatActivity {
                 strShopPincode = shopPincode.getText().toString();
                 strShopEmail = shopEmail.getText().toString();
                 strGstNumber = gstNumber.getText().toString();
-                strSlogan = slogan.getText().toString();
 
                 if(strShopName.matches("")){
                     Toast.makeText(updateShopDetails.this, "Enter Shop Name",Toast.LENGTH_LONG).show();
@@ -171,14 +156,11 @@ public class updateShopDetails extends AppCompatActivity {
                     strGstNumber = "None";
                 }
                 if(strGstNumber.length() != 15){
-                    if(strGstNumber != "None") {
+                    if(!strGstNumber.equals("None")) {
                         Toast.makeText(updateShopDetails.this, "Enter valid GST number",Toast.LENGTH_LONG).show();
                         nDialog.dismiss();
                         return;
                     }
-                }
-                if(strSlogan.matches("")){
-                    strSlogan = "None";
                 }
 
                 demoRef1 = demoRef.child("shopDetail");
@@ -188,16 +170,11 @@ public class updateShopDetails extends AppCompatActivity {
                 demoRef1.child("shopPincode").setValue(strShopPincode);
                 demoRef1.child("gstNumber").setValue(strGstNumber);
                 demoRef1.child("shopEmail").setValue(strShopEmail);
-                if(slogan.length() == 0){
-                    demoRef1.child("slogan").setValue("None");
-                }
-                else{
-                    demoRef1.child("slogan").setValue(strSlogan);
-                }
+
 
                 //Cursor res = myDb.getInfo();
                 if(flag == 1){
-                    if(myDb.updateData(strShopName, strShopMobile, strShopAddress, strShopPincode, strShopEmail, strGstNumber, strSlogan)){
+                    if(myDb.updateData(strShopName, strShopMobile, strShopAddress, strShopPincode, strShopEmail, strGstNumber)){
                         Toast.makeText(updateShopDetails.this, "Update Successfull", Toast.LENGTH_SHORT).show();
                     }
                     else{
@@ -206,7 +183,7 @@ public class updateShopDetails extends AppCompatActivity {
                     }
                 }
                 else{
-                    if(myDb.insertData(strShopName, strShopMobile, strShopAddress, strShopPincode, strShopEmail, strGstNumber, strSlogan)){
+                    if(myDb.insertData(strShopName, strShopMobile, strShopAddress, strShopPincode, strShopEmail, strGstNumber)){
                         Toast.makeText(updateShopDetails.this, "Update Successfull", Toast.LENGTH_SHORT).show();
                     }
                     else{
@@ -222,7 +199,6 @@ public class updateShopDetails extends AppCompatActivity {
     public void startUpdateShopDetailsActivity(){
         Intent intent = new Intent(this, home.class);
         Toast.makeText(updateShopDetails.this, "Shop details successfully updated",Toast.LENGTH_LONG).show();
-        login.videoPlay = "notPlay";
         startActivity(intent);
         nDialog.dismiss();
     }
@@ -231,40 +207,15 @@ public class updateShopDetails extends AppCompatActivity {
         startActivity(intent);
         nDialog.dismiss();
     }
-    public void startOfflineActivity(){
-        Intent intent = new Intent(this, offline.class);
-        startActivity(intent);
-    }
     public void startSmwActivity(){
         Intent intent = new Intent(this, somethingWentWrong.class);
         startActivity(intent);
     }
-    private void sendVerificationEmail(){
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
-                    FirebaseAuth.getInstance().signOut();
-                    startActivity(new Intent(updateShopDetails.this, home.class));
-                    login.videoPlay = "notPlay";
-                    nDialog.dismiss();
-                    finish();
-                }
-                else{
-                    Toast.makeText(updateShopDetails.this, "signup Failed",
-                            Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
-
     @Override
     public void onBackPressed() {
         startHomeActivity();
     }
     public void startHomeActivity(){
-        login.videoPlay = "notPlay";
         Intent intent = new Intent(this, home.class);
         startActivity(intent);
     }

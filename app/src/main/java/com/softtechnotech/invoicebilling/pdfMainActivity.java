@@ -51,31 +51,28 @@ public class pdfMainActivity extends AppCompatActivity {
         });
     }
     public ArrayList<File> getfile(File dir) {
-        File listFile[] = dir.listFiles();
+        File[] listFile = dir.listFiles();
         if (listFile != null && listFile.length > 0) {
-            for (int i = 0; i < listFile.length; i++) {
+            for (File file : listFile) {
 
-                if (listFile[i].isDirectory()) {
-                    getfile(listFile[i]);
+                if (file.isDirectory()) {
+                    getfile(file);
 
                 } else {
 
                     boolean booleanpdf = false;
-                    if (listFile[i].getName().endsWith(".pdf")) {
+                    if (file.getName().endsWith(".pdf")) {
 
                         for (int j = 0; j < fileList.size(); j++) {
-                            if (fileList.get(j).getName().equals(listFile[i].getName())) {
+                            if (fileList.get(j).getName().equals(file.getName())) {
                                 booleanpdf = true;
-                            } else {
-
                             }
                         }
 
                         if (booleanpdf) {
                             booleanpdf = false;
                         } else {
-                            fileList.add(listFile[i]);
-
+                            fileList.add(file);
                         }
                     }
                 }
@@ -85,9 +82,7 @@ public class pdfMainActivity extends AppCompatActivity {
     }
     private void fnPermission(){
         if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
-            if(ActivityCompat.shouldShowRequestPermissionRationale(pdfMainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)){
-            }
-            else{
+            if (!ActivityCompat.shouldShowRequestPermissionRationale(pdfMainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
                 ActivityCompat.requestPermissions(pdfMainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_PERMISSIONS);
             }
         }
